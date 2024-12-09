@@ -1,0 +1,35 @@
+<div id="matchesBase" class="container">
+    <article *ngIf="!!matchDay">
+        <div class="top">
+            <span (click)="matchDay.matchday > 1 && gotoMatchDay(matchDay.matchday - 1)" [class.inactive]="matchDay.matchday <= 1"><i class="fa-solid fa-angle-left"></i></span>
+            <h4>Jornada {{ matchDay.matchday }}</h4>
+            <span (click)="matchDay.matchday < lastMatchDay && gotoMatchDay(matchDay.matchday + 1)" [class.inactive]="matchDay.matchday >= lastMatchDay"><i class="fa-solid fa-angle-right"></i></span>
+        </div>
+        <div *ngFor="let match of matchDay.matches" class="match">
+            <div class="date">
+                <i>{{ match.stadium }}</i>                
+                <b *ngIf="!match.date || nowDate < match.date">{{ (match.date | date: 'd MMMM y, EEEE' : undefined : 'pt-PT') || 'Data do Jogo a definir' }}</b>
+                <b *ngIf="!!match.date && nowDate >= match.date && nowDate <= (match.date + mft)">Jogo decorrendo,
+                    <span [class.half]="cron(match.date) > 45 && cron(match.date) < 60">{{ cron(match.date) <= 45 ? '1ª P: ' : cron(match.date) < 60 ? 'Intervalo' : '2ª P: ' }}</span>
+                    <span class="cron" *ngIf="cron(match.date) <= 45 || cron(match.date) >= 60">{{ cron(match.date) <= 45 ? cron(match.date) : (cron(match.date) - 15) }}'</span>
+                </b>
+                <b *ngIf="!!match.date && nowDate > (match.date + mft)">Jogo terminado</b>
+            </div>
+            <div class="box">
+                <h5 class="a" [title]="match.team_a">{{ match.team_a_shortName }}</h5>
+                <img src="./../../assets/emblemas/{{ match.team_a_sigla }}.png" [title]="match.team_a" [alt]="match.team_a">
+
+                <div *ngIf="!!match.date && nowDate >= match.date" class="scorre" [class.live]="nowDate <= (match.date + mft)" [class.half]="cron(match.date) > 45 && cron(match.date) < 60">
+                    <span class="a" [class.win]="false">{{ 0 }}</span>
+                    <b>:</b>
+                    <span class="b" [class.win]="false">{{ 0 }}</span>
+                </div>
+                <div *ngIf="!match.date || nowDate < match.date" class="hour">• {{ (match.date | date: 'H:mm' : undefined : 'pt-PT') || '--:--' }} •</div>
+
+                <img src="./../../assets/emblemas/{{ match.team_b_sigla }}.png" [title]="match.team_b" [alt]="match.team_b">
+                <h5 class="b" [title]="match.team_b">{{ match.team_b_shortName }}</h5>
+            </div>
+        </div>
+    </article>
+</div>
+<!-- • -->
