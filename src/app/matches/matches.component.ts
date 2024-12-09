@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatchDay, MatchListService } from '../_core/match-list.service';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../_core/shared.module';
+import { CoreService } from '../_core/core.service';
 
 @Component({
   selector: 'app-matches',
@@ -21,6 +22,7 @@ export class MatchesComponent {
   public lastMatchDay: number = 1;
 
   constructor(
+    public core: CoreService,
     private matchSvc: MatchListService
   ) {
     this.matchSvc.matchList.subscribe(ml => {

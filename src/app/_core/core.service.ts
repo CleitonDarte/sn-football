@@ -5,5 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CoreService {
 
+  public assetsGlobalUrl: string = location.hostname == 'localhost' ? './../../assets/' : 'https://raw.githubusercontent.com/CleitonDarte/sn-football/master/src/assets/';
+
   constructor() { }
 }

@@ -17,7 +17,7 @@
             </div>
             <div class="box">
                 <h5 class="a" [title]="match.team_a">{{ match.team_a_shortName }}</h5>
-                <img src="./../../assets/emblemas/{{ match.team_a_sigla }}.png" [title]="match.team_a" [alt]="match.team_a">
+                <img src="{{ core.assetsGlobalUrl }}emblemas/{{ match.team_a_sigla }}.png" [title]="match.team_a" [alt]="match.team_a">
 
                 <div *ngIf="!!match.date && nowDate >= match.date" class="scorre" [class.live]="nowDate <= (match.date + mft)" [class.half]="cron(match.date) > 45 && cron(match.date) < 60">
                     <span class="a" [class.win]="false">{{ 0 }}</span>
@@ -26,7 +26,7 @@
                 </div>
                 <div *ngIf="!match.date || nowDate < match.date" class="hour">• {{ (match.date | date: 'H:mm' : undefined : 'pt-PT') || '--:--' }} •</div>
 
-                <img src="./../../assets/emblemas/{{ match.team_b_sigla }}.png" [title]="match.team_b" [alt]="match.team_b">
+                <img src="{{ core.assetsGlobalUrl }}emblemas/{{ match.team_b_sigla }}.png" [title]="match.team_b" [alt]="match.team_b">
                 <h5 class="b" [title]="match.team_b">{{ match.team_b_shortName }}</h5>
             </div>
         </div>

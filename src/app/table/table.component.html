@@ -17,7 +17,7 @@
             </tr>
             <tr *ngFor="let team of teamList$; index as ind">
                 <td><div>{{ ind + 1 }}</div></td>
-                <td><div><img src="./../../assets/emblemas/{{ team.sigla }}.png" [alt]="team.name"> {{ team.shortName }}</div></td>
+                <td><div><img src="{{ core.assetsGlobalUrl }}emblemas/{{ team.sigla }}.png" [alt]="team.name"> {{ team.shortName }}</div></td>
                 <td><div>{{ team.results.points }}</div></td>
                 <td><div>{{ team.results.matchesPlayed }}</div></td>
                 <td><div>{{ team.results.wins }}</div></td>

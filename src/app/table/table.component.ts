@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Team, TeamListService } from '../_core/team-list.service';
 import { SharedModule } from '../_core/shared.module';
+import { CoreService } from '../_core/core.service';
 
 @Component({
   selector: 'app-table',
@@ -14,6 +15,7 @@ export class TableComponent {
   public teamList$?: Team[];
 
   constructor(
+    public core: CoreService,
     private teamSvc: TeamListService
   ) {
     this.teamSvc.teamList.subscribe(tl => {
