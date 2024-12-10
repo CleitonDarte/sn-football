@@ -24,14 +24,16 @@ export interface MatchDay {
 })
 export class MatchListService {
 
+  /* mudar date - adicinar mais 1 hora */
+
   public matchList = new BehaviorSubject<MatchDay[]>([
     {
       matchday: 1,
-      endDate: 1734192000000,
+      endDate: 1734224400000,
       matches: [
         {
           id: 1,
-          date: 1734184800000,
+          date: 1734188400000,
           stadium: "Estádio Di Deus",
           team_a: "Associação Académica de Preguiça",
           team_a_shortName: "Preguiça",
@@ -42,7 +44,7 @@ export class MatchListService {
         },
         {
           id: 2,
-          date: 1734184800000,
+          date: 1734188400000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Football Club Ultramarina",
           team_a_shortName: "Ultramarina",
@@ -53,7 +55,7 @@ export class MatchListService {
         },
         {
           id: 3,
-          date: 1734192000000,
+          date: 1734195600000,
           stadium: "Estádio Di Deus",
           team_a: "Sport Club Atlético",
           team_a_shortName: "Atlético",
@@ -64,7 +66,7 @@ export class MatchListService {
         },
         {
           id: 4,
-          date: 1734192000000,
+          date: 1734195600000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Football Club Praia Branca",
           team_a_shortName: "Praia Branca",
@@ -77,11 +79,11 @@ export class MatchListService {
     },
     {
       matchday: 2,
-      endDate: 1734883200000,
+      endDate: 1734915600000,
       matches: [
         {
           id: 5,
-          date: 1734789600000,
+          date: 1734793200000,
           stadium: "Estádio Di Deus",
           team_a: "Associação Comunitária Mancha Verde",
           team_a_shortName: "Mancha Verde",
@@ -92,7 +94,7 @@ export class MatchListService {
         },
         {
           id: 6,
-          date: 1734796800000,
+          date: 1734800400000,
           stadium: "Estádio Di Deus",
           team_a: "Football Club Belo Horizonte",
           team_a_shortName: "Belo Horizonte",
@@ -103,7 +105,7 @@ export class MatchListService {
         },
         {
           id: 7,
-          date: 1734796800000,
+          date: 1734800400000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Associação de Jovens Amigos de Tarrafal São Nicolau",
           team_a_shortName: "A.J.A.T-SN",
@@ -114,7 +116,7 @@ export class MatchListService {
         },
         {
           id: 8,
-          date: 1734883200000,
+          date: 1734886800000,
           stadium: "Estádio Di Deus",
           team_a: "Football Club Talho",
           team_a_shortName: "Talho",
@@ -127,11 +129,11 @@ export class MatchListService {
     },
     {
       matchday: 3,
-      endDate: 1735401600000,
+      endDate: 1735434000000,
       matches: [
         {
           id: 9,
-          date: 1735394400000,
+          date: 1735398000000,
           stadium: "Estádio Di Deus",
           team_a: "Sport Club Atlético",
           team_a_shortName: "Atlético",
@@ -142,7 +144,7 @@ export class MatchListService {
         },
         {
           id: 10,
-          date: 1735394400000,
+          date: 1735398000000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Associação Jovens de Esperança Chã-Poça",
           team_a_shortName: "Chã-Poça",
@@ -153,7 +155,7 @@ export class MatchListService {
         },
         {
           id: 11,
-          date: 1735401600000,
+          date: 1735405200000,
           stadium: "Estádio Di Deus",
           team_a: "Associação Académica de Preguiça",
           team_a_shortName: "Preguiça",
@@ -164,7 +166,7 @@ export class MatchListService {
         },
         {
           id: 12,
-          date: 1735401600000,
+          date: 1735405200000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Football Club Ultramarina",
           team_a_shortName: "Ultramarina",
@@ -177,11 +179,11 @@ export class MatchListService {
     },
     {
       matchday: 4,
-      endDate: 1736092800000,
+      endDate: 1736125200000,
       matches: [
         {
           id: 13,
-          date: 1736006400000,
+          date: 1736010000000,
           stadium: "Estádio Di Deus",
           team_a: "Associação Comunitária Mancha Verde",
           team_a_shortName: "Mancha Verde",
@@ -192,7 +194,7 @@ export class MatchListService {
         },
         {
           id: 14,
-          date: 1736006400000,
+          date: 1736010000000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Associação de Jovens Amigos de Tarrafal São Nicolau",
           team_a_shortName: "A.J.A.T-SN",
@@ -203,7 +205,7 @@ export class MatchListService {
         },
         {
           id: 15,
-          date: 1736092800000,
+          date: 1736096400000,
           stadium: "Estádio Di Deus",
           team_a: "Football Club Belo Horizonte",
           team_a_shortName: "Belo Horizonte",
@@ -214,7 +216,7 @@ export class MatchListService {
         },
         {
           id: 16,
-          date: 1736092800000,
+          date: 1736096400000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Football Club Praia Branca",
           team_a_shortName: "Praia Branca",
@@ -227,11 +229,11 @@ export class MatchListService {
     },
     {
       matchday: 5,
-      endDate: 1736697600000,
+      endDate: 1736730000000,
       matches: [
         {
           id: 17,
-          date: 1736604000000,
+          date: 1736607600000,
           stadium: "Estádio Di Deus",
           team_a: "Associação Académica de Preguiça",
           team_a_shortName: "Preguiça",
@@ -242,7 +244,7 @@ export class MatchListService {
         },
         {
           id: 18,
-          date: 1736611200000,
+          date: 1736614800000,
           stadium: "Estádio Di Deus",
           team_a: "Sport Club Atlético",
           team_a_shortName: "Atlético",
@@ -253,7 +255,7 @@ export class MatchListService {
         },
         {
           id: 19,
-          date: 1736611200000,
+          date: 1736614800000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Associação Jovens de Esperança Chã-Poça",
           team_a_shortName: "Chã-Poça",
@@ -264,7 +266,7 @@ export class MatchListService {
         },
         {
           id: 20,
-          date: 1736697600000,
+          date: 1736701200000,
           stadium: "Estádio Di Deus",
           team_a: "Football Club Talho",
           team_a_shortName: "Talho",
@@ -277,11 +279,11 @@ export class MatchListService {
     },
     {
       matchday: 6,
-      endDate: 1737302400000,
+      endDate: 1737334800000,
       matches: [
         {
           id: 21,
-          date: 1737208800000,
+          date: 1737212400000,
           stadium: "Estádio Di Deus",
           team_a: "Football Club Belo Horizonte",
           team_a_shortName: "Belo Horizonte",
@@ -292,7 +294,7 @@ export class MatchListService {
         },
         {
           id: 22,
-          date: 1737216000000,
+          date: 1737219600000,
           stadium: "Estádio Di Deus",
           team_a: "Associação Comunitária Mancha Verde",
           team_a_shortName: "Mancha Verde",
@@ -303,7 +305,7 @@ export class MatchListService {
         },
         {
           id: 23,
-          date: 1737216000000,
+          date: 1737219600000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Football Club Praia Branca",
           team_a_shortName: "Praia Branca",
@@ -314,7 +316,7 @@ export class MatchListService {
         },
         {
           id: 24,
-          date: 1737302400000,
+          date: 1737306000000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Football Club Ultramarina",
           team_a_shortName: "Ultramarina",
@@ -327,11 +329,11 @@ export class MatchListService {
     },
     {
       matchday: 7,
-      endDate: 1737907200000,
+      endDate: 1737939600000,
       matches: [
         {
           id: 25,
-          date: 1737813600000,
+          date: 1737817200000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Associação de Jovens Amigos de Tarrafal São Nicolau",
           team_a_shortName: "A.J.A.T-SN",
@@ -342,7 +344,7 @@ export class MatchListService {
         },
         {
           id: 26,
-          date: 1737820800000,
+          date: 1737824400000,
           stadium: "Estádio Di Deus",
           team_a: "Associação Académica de Preguiça",
           team_a_shortName: "Preguiça",
@@ -353,7 +355,7 @@ export class MatchListService {
         },
         {
           id: 27,
-          date: 1737820800000,
+          date: 1737824400000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Associação Jovens de Esperança Chã-Poça",
           team_a_shortName: "Chã-Poça",
@@ -364,7 +366,7 @@ export class MatchListService {
         },
         {
           id: 28,
-          date: 1737907200000,
+          date: 1737910800000,
           stadium: "Estádio Di Deus",
           team_a: "Football Club Talho",
           team_a_shortName: "Talho",
@@ -377,11 +379,11 @@ export class MatchListService {
     },
     {
       matchday: 8,
-      endDate: 1738425600000,
+      endDate: 1738458000000,
       matches: [
         {
           id: 29,
-          date: 1738418400000,
+          date: 1738422000000,
           stadium: "Estádio Di Deus",
           team_a: "Sport Club Atlético",
           team_a_shortName: "Atlético",
@@ -392,7 +394,7 @@ export class MatchListService {
         },
         {
           id: 30,
-          date: 1738418400000,
+          date: 1738422000000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Football Club Ultramarina",
           team_a_shortName: "Ultramarina",
@@ -403,7 +405,7 @@ export class MatchListService {
         },
         {
           id: 31,
-          date: 1738425600000,
+          date: 1738429200000,
           stadium: "Estádio Di Deus",
           team_a: "Associação Comunitária Mancha Verde",
           team_a_shortName: "Mancha Verde",
@@ -414,7 +416,7 @@ export class MatchListService {
         },
         {
           id: 32,
-          date: 1738425600000,
+          date: 1738429200000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Football Club Praia Branca",
           team_a_shortName: "Praia Branca",
@@ -427,11 +429,11 @@ export class MatchListService {
     },
     {
       matchday: 9,
-      endDate: 1739116800000,
+      endDate: 1739149200000,
       matches: [
         {
           id: 33,
-          date: 1739023200000,
+          date: 1739026800000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Associação de Jovens Amigos de Tarrafal São Nicolau",
           team_a_shortName: "A.J.A.T-SN",
@@ -442,7 +444,7 @@ export class MatchListService {
         },
         {
           id: 34,
-          date: 1739030400000,
+          date: 1739034000000,
           stadium: "Estádio Di Deus",
           team_a: "Football Club Belo Horizonte",
           team_a_shortName: "Belo Horizonte",
@@ -453,7 +455,7 @@ export class MatchListService {
         },
         {
           id: 35,
-          date: 1739030400000,
+          date: 1739034000000,
           stadium: "Estádio Municipal Orlando Rogrigues",
           team_a: "Associação Jovens de Esperança Chã-Poça",
           team_a_shortName: "Chã-Poça",
@@ -464,7 +466,7 @@ export class MatchListService {
         },
         {
           id: 36,
-          date: 1739116800000,
+          date: 1739120400000,
           stadium: "Estádio Di Deus",
           team_a: "Football Club Talho",
           team_a_shortName: "Talho",

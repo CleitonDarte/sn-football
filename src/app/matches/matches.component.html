@@ -5,6 +5,7 @@
             <h4>Jornada {{ matchDay.matchday }}</h4>
             <span (click)="matchDay.matchday < lastMatchDay && gotoMatchDay(matchDay.matchday + 1)" [class.inactive]="matchDay.matchday >= lastMatchDay"><i class="fa-solid fa-angle-right"></i></span>
         </div>
+        <!-- <p>{{ matchDay.endDate | date: 'd MMMM y, EEEE - H:mm' : undefined : 'pt-PT' }}</p> -->
         <div *ngFor="let match of matchDay.matches" class="match">
             <div class="date">
                 <i>{{ match.stadium }}</i>                
@@ -20,9 +21,9 @@
                 <img src="{{ core.assetsGlobalUrl }}emblemas/{{ match.team_a_sigla }}.png" [title]="match.team_a" [alt]="match.team_a">
 
                 <div *ngIf="!!match.date && nowDate >= match.date" class="scorre" [class.live]="nowDate <= (match.date + mft)" [class.half]="cron(match.date) > 45 && cron(match.date) < 60">
-                    <span class="a" [class.win]="false">{{ 0 }}</span>
+                    <span class="a" [class.win]="false">{{ '-' }}</span>
                     <b>:</b>
-                    <span class="b" [class.win]="false">{{ 0 }}</span>
+                    <span class="b" [class.win]="false">{{ '-' }}</span>
                 </div>
                 <div *ngIf="!match.date || nowDate < match.date" class="hour">• {{ (match.date | date: 'H:mm' : undefined : 'pt-PT') || '--:--' }} •</div>
 

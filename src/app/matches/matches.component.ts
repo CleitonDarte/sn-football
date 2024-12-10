@@ -32,7 +32,7 @@ export class MatchesComponent {
       this.lastMatchDay = 1;
       for (let matchDay of this.matchDays$) {
         if (matchDay.endDate && this.nowDate > matchDay.endDate) {
-          currentMatchDay = matchDay.matchday - 1;
+          currentMatchDay = matchDay.matchday + 1;
         }
         this.lastMatchDay = matchDay.matchday;
       }
