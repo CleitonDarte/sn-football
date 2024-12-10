@@ -24,8 +24,6 @@ export interface MatchDay {
 })
 export class MatchListService {
 
-  /* mudar date - adicinar mais 1 hora */
-
   public matchList = new BehaviorSubject<MatchDay[]>([
     {
       matchday: 1,
