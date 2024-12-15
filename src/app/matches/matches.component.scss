@@ -26,7 +26,7 @@
 
         .match {
             &:not(:last-child) { margin-bottom: 1rem; }
-            background-color: #89216B;
+            background-color: var(--mainColor);
             padding: 2px;
             border-radius: 9px;
 
@@ -98,7 +98,10 @@
                         color: #333;
                         border-radius: 7px;
 
-                        &.win { background-color: limegreen; }
+                        /* &.win {
+                            background-color: limegreen;
+                            color: #fff;
+                        } */
                     }
 
                     b {

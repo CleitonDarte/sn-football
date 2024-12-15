@@ -18,8 +18,18 @@ export class TableComponent {
     public core: CoreService,
     private teamSvc: TeamListService
   ) {
-    this.teamSvc.teamList.subscribe(tl => {
-      this.teamList$ = tl.filter(t => { return !!t.playing }).sort((a: any, b: any) => { return (b.points - a.points) || ((b.goalsFavor - b.goalsAgainst) - (a.goalsFavor - a.goalsAgainst)) }) ;
+    this.teamSvc.getTeamsInfo().subscribe({
+      next: tl => {
+        if (tl.success) {
+          this.teamList$ = tl.data.teams || [];
+        } else {
+          this.teamList$ = [];
+          this.core.toast.next({ type: 'error', description: tl.message, time: 15 });
+        }
+      }, error: noTl => {
+        this.teamList$ = [];
+        this.core.toast.next({ type: 'error', description: noTl.error.message, time: 15 });
+      }
     });
   }
 

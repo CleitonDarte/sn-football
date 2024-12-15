@@ -12,9 +12,15 @@ body {
     text-align: initial;
     background-color: #202124;
 
-    --mainColor: #8fc640;
-    --secoColor: #1072bc;
-    --thirColor: #fdba2c;
+    --mainColor: #89216B;
+    --secoColor: #DA4453;
+    --thirColor: rgba(137, 33, 107, 0.3);
+
+    &.admin {
+        --mainColor: #976c8b;
+        --secoColor: #DA4453;
+        --thirColor: rgba(177, 121, 161, 0.3);
+    }
 }
 
 /*-- BOOTSTRAP FIXING --*/

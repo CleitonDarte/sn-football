@@ -25,25 +25,42 @@ export class MatchesComponent {
     public core: CoreService,
     private matchSvc: MatchListService
   ) {
-    this.matchSvc.matchList.subscribe(ml => {
-      this.matchDays$ = ml;
-
-      let currentMatchDay: number = 1;
-      this.lastMatchDay = 1;
-      for (let matchDay of this.matchDays$) {
-        if (matchDay.endDate && this.nowDate > matchDay.endDate) {
-          currentMatchDay = matchDay.matchday + 1;
-        }
-        this.lastMatchDay = matchDay.matchday;
-      }
-      this.gotoMatchDay(currentMatchDay);
-    });
-
     setInterval(() => { this.nowDate = new Date().getTime() }, 1000);
+    this.core.refreshCall.subscribe(refresh => {
+      if (refresh) {
+        this.loadMatches(false);
+        this.core.refreshCall.next(false);
+      }
+    });
+    this.loadMatches();
   }
 
-  public gotoMatchDay(matchday: number) {
-    this.matchDay = this.matchDays$?.filter((md) => { return md.matchday == matchday })[0];
+  private loadMatches(initial: boolean = true) {
+    this.matchSvc.getAllMatches().subscribe({
+      next: ml => {
+        if (ml.success) {
+          this.matchDays$ = ml.data.matches || [];
+
+          let currentMatchDay: number = 1;
+          this.lastMatchDay = 1;
+          for (let matchDay of this.matchDays$ || []) {
+            initial && matchDay.endDate && this.nowDate > matchDay.endDate && (currentMatchDay = matchDay.matchdayId + 1);
+            this.lastMatchDay = matchDay.matchdayId;
+          }
+          this.gotoMatchDay(currentMatchDay);
+        } else {
+          this.matchDays$ = [];
+          this.core.toast.next({ type: 'error', description: ml.message, time: 15 });
+        }
+      }, error: noMl => {
+        this.matchDays$ = [];
+        this.core.toast.next({ type: 'error', description: noMl.error.message, time: 15 });
+      }
+    });
+  }
+
+  public gotoMatchDay(matchdayId: number) {
+    this.matchDay = this.matchDays$?.filter((md) => { return md.matchdayId == matchdayId })[0];
   }
 
   public cron(initDate: number): number {

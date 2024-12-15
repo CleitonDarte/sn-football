@@ -1,5 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { CoreService } from './core.service';
 
 export interface Team {
   id: number,
@@ -208,5 +210,22 @@ export class TeamListService {
     }
   ]);
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+    private core: CoreService
+  ) { }
+
+  private userAuth(): string {
+    return JSON.parse(localStorage['sd'] || '{}').ut;
+  }
+
+  public getTeamsInfo() {
+    let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.get<any>(`${this.core.apiBaseUrl}/teams`, httpOptions);
+  }
+
+  public setMatcheResults(matchId: number, request: { team_a_goals: number, team_b_goals: number }) {
+    let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', token: this.userAuth() }) };
+    return this.http.post<any>(`${this.core.apiBaseUrl}/teams/match-finish/${matchId}`, request, httpOptions);
+  }
 }

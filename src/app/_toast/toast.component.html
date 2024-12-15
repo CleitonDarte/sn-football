@@ -1,0 +1,8 @@
+<div id="toastBase" *ngIf="!!toastList?.length" class="{{ toastSetts.xPos }} {{ toastSetts.yPos }}">
+    
+    <div *ngFor="let toast of toastList" class="upar-toast {{ toast.type }}" (click)="removeToast(toast.utid)">
+        <h6>{{ toast.type | titlecase }}</h6>
+        <p>{{ toast.description }}</p>
+    </div>
+
+</div>

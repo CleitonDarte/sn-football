@@ -11,14 +11,14 @@ header {
         span {
             display: block;
             font-size: 2em;
-            color: #DA4453;
+            color: var(--secoColor);
         }
 
         h4 {
             display: block;
             font-weight: 700;
             font-size: 2em;
-            color: #89216B;
+            color: var(--mainColor);
         }
     }
 }
@@ -44,8 +44,8 @@ main {
             &.selected {
                 color: #fff;
                 pointer-events: none;
-                background-color: rgba(137, 33, 107, 0.3);
-                border-color: #89216B;
+                background-color: var(--thirColor);
+                border-color: var(--mainColor);
                 box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
             }
         }

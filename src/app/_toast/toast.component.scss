@@ -1,0 +1,79 @@
+@keyframes entri {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#toastBase {
+    font-family: 'Milliard', sans-serif;
+    
+    position: fixed;
+    width: calc(100% - 3rem);
+    max-width: 350px;
+    z-index: 10;
+
+    &.top { top: 1.5rem; }
+    &.bottom { bottom: 1.5rem; }
+    &.center {
+        transform: translateY(-50%);
+        top: 50%;
+    }
+
+    &.left { left: 1.5rem; }
+    &.right { right: 1.5rem; }
+    &.middle {
+        transform: translateX(-50%);
+        left: 50%;
+    }
+
+    .upar-toast {
+        position: relative;
+        padding: 10px 10px 10px 60px;
+        font-size: .85em;
+        border-radius: 8px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: .3s;
+        animation: entri .3s ease-out;
+
+        &:not(:last-child) { margin-bottom: .35rem; }
+
+        h6 { font-weight: bold; }
+        p { font-size: .85em; }
+
+        &:before {
+            content: '';
+            position: absolute;
+            font-family: "Font Awesome 5 Free";
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 0;
+            transform: translate(-50%, -50%);
+            top: 25px;
+            left: 30px;
+        }
+
+        &.success {
+            background-color: rgba(219, 248, 201, .95);
+            color: #4579b5;
+            &:before { content: '\f00c'; }
+        }
+
+        &.error {
+            background-color: rgba(248, 201, 201, 0.95);
+            color: #ae1f1f;
+            &:before { content: '\f057'; }
+        }
+
+        &.warn {
+            background-color: rgba(248, 229, 201, 0.95);
+            color: #f3861f;
+            &:before { content: '\f071'; }
+        }
+
+        &.info {
+            background-color: rgba(201, 221, 248, 0.95);
+            color: #4579b5;
+            &:before { content: '\f05a'; }
+        }
+    }
+}
