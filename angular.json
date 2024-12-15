@@ -124,6 +124,9 @@
               "node_modules/@fortawesome/fontawesome-free/js/all.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

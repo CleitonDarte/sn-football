@@ -28,7 +28,7 @@ export class TableComponent {
         }
       }, error: noTl => {
         this.teamList$ = [];
-        this.core.toast.next({ type: 'error', description: noTl.error.message, time: 15 });
+        this.core.toast.next({ type: 'error', description: noTl.error.message || 'Error loading Teams', time: 15 });
       }
     });
   }

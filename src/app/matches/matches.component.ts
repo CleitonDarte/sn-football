@@ -54,7 +54,7 @@ export class MatchesComponent {
         }
       }, error: noMl => {
         this.matchDays$ = [];
-        this.core.toast.next({ type: 'error', description: noMl.error.message, time: 15 });
+        this.core.toast.next({ type: 'error', description: noMl.error.message || 'Error loading Matches', time: 15 });
       }
     });
   }
