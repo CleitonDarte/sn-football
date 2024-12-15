@@ -31,7 +31,7 @@ export interface MatchDay {
 })
 export class MatchListService {
 
-  public matchList = new BehaviorSubject<MatchDay[]>([
+  /* public matchList = new BehaviorSubject<MatchDay[]>([
     {
       matchdayId: 1,
       endDate: 1734224400000,
@@ -1292,7 +1292,7 @@ export class MatchListService {
         }
       ]
     }
-  ]);
+  ]); */
 
   constructor(
     private http: HttpClient,

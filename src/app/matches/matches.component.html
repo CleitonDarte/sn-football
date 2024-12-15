@@ -6,7 +6,7 @@
             <span (click)="matchDay.matchdayId < lastMatchDay && gotoMatchDay(matchDay.matchdayId + 1)" [class.inactive]="matchDay.matchdayId >= lastMatchDay"><i class="fa-solid fa-angle-right"></i></span>
         </div>
         <!-- <p>{{ matchDay.endDate | date: 'd MMMM y, EEEE - H:mm' : undefined : 'pt-PT' }}</p> -->
-        <div *ngFor="let match of matchDay.matches" class="match" (click)="core.popup.next({ pop: 'update', extraData: match })">
+        <div *ngFor="let match of matchDay.matches" class="match" (click)="admin$ && core.popup.next({ pop: 'update', extraData: match })">
             <div class="date">
                 <i>{{ match.stadium }}</i>                
                 <b *ngIf="!match.date || nowDate < match.date">{{ (match.date | date: 'd MMMM y, EEEE' : undefined : 'pt-PT') || 'Data do Jogo a definir' }}</b>

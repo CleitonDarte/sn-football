@@ -3,6 +3,7 @@ import { MatchDay, MatchListService } from '../_core/match-list.service';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../_core/shared.module';
 import { CoreService } from '../_core/core.service';
+import { AuthService } from '../_core/auth.service';
 
 @Component({
   selector: 'app-matches',
@@ -13,6 +14,7 @@ import { CoreService } from '../_core/core.service';
 })
 export class MatchesComponent {
 
+  public admin$: boolean = false;
   public readonly mft: number = 6300000;/* Match Full Time 105min */
 
   public matchDays$?: MatchDay[];
@@ -23,15 +25,20 @@ export class MatchesComponent {
 
   constructor(
     public core: CoreService,
+    private auth: AuthService,
     private matchSvc: MatchListService
   ) {
     setInterval(() => { this.nowDate = new Date().getTime() }, 1000);
+
+    this.auth.savedData.subscribe(sd => { this.admin$ = sd });
+
     this.core.refreshCall.subscribe(refresh => {
       if (refresh) {
         this.loadMatches(false);
         this.core.refreshCall.next(false);
       }
     });
+    
     this.loadMatches();
   }
 

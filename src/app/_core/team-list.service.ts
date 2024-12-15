@@ -27,7 +27,7 @@ export interface Team {
 })
 export class TeamListService {
 
-  public teamList = new BehaviorSubject<Team[]>([
+  /* public teamList = new BehaviorSubject<Team[]>([
     {
       id: 1,
       playing: true,
@@ -208,7 +208,7 @@ export class TeamListService {
         matchesResults: []
       }
     }
-  ]);
+  ]); */
 
   constructor(
     private http: HttpClient,
