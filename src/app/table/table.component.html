@@ -1,6 +1,6 @@
 <div id="tableBase" class="container">
 
-    <div class="tableBox">
+    <div *ngIf="!!teamList$?.length" class="tableBox">
         <table>
             <tr>
                 <th title="Posição"><div>#</div></th>
