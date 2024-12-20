@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatchDay, MatchListService } from '../_core/match-list.service';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from '../_core/shared.module';
 import { CoreService } from '../_core/core.service';
-import { AuthService } from '../_core/auth.service';
 
 @Component({
   selector: 'app-matches',
@@ -12,7 +10,7 @@ import { AuthService } from '../_core/auth.service';
   templateUrl: './matches.component.html',
   styleUrl: './matches.component.scss'
 })
-export class MatchesComponent {
+export class MatchesComponent implements OnDestroy {
 
   public admin$: boolean = false;
   public readonly mft: number = 6300000;/* Match Full Time 105min */
@@ -21,16 +19,20 @@ export class MatchesComponent {
   public matchDay?: MatchDay;
   public nowDate: number = new Date().getTime();
 
+  private currentMatchDayId: number = 1;
+  private matchLive: boolean = false;
+
   public lastMatchDay: number = 1;
+
+  private callInterval: any;
 
   constructor(
     public core: CoreService,
-    private auth: AuthService,
     private matchSvc: MatchListService
   ) {
     setInterval(() => { this.nowDate = new Date().getTime() }, 1000);
 
-    this.auth.savedData.subscribe(sd => { this.admin$ = sd });
+    this.core.adminMode.subscribe(adm => { this.admin$ = adm });
 
     this.core.refreshCall.subscribe(refresh => {
       if (refresh) {
@@ -38,8 +40,12 @@ export class MatchesComponent {
         this.core.refreshCall.next(false);
       }
     });
-    
+
     this.loadMatches();
+  }
+
+  ngOnDestroy(): void {
+    !!this.callInterval && clearInterval(this.callInterval);
   }
 
   private loadMatches(initial: boolean = true) {
@@ -48,11 +54,19 @@ export class MatchesComponent {
         if (ml.success) {
           this.matchDays$ = ml.data.matches || [];
 
-          let currentMatchDay: number = 1;
+          let currentMatchDay: number = !initial ? this.currentMatchDayId || 1 : 1;
           this.lastMatchDay = 1;
           for (let matchDay of this.matchDays$ || []) {
             initial && matchDay.endDate && this.nowDate > matchDay.endDate && (currentMatchDay = matchDay.matchdayId + 1);
+
+            if (initial) {
+              for (let match of matchDay.matches) {
+                match.date && match.date < this.nowDate && (match.date + this.mft) > this.nowDate && (this.matchLive = true);
+              }
+            }
+
             this.lastMatchDay = matchDay.matchdayId;
+            initial && this.matchLive && (this.callInterval = setInterval(() => { this.loadMatches(false) }, 60000));
           }
           this.gotoMatchDay(currentMatchDay);
         } else {
@@ -67,6 +81,7 @@ export class MatchesComponent {
   }
 
   public gotoMatchDay(matchdayId: number) {
+    this.currentMatchDayId = matchdayId;
     this.matchDay = this.matchDays$?.filter((md) => { return md.matchdayId == matchdayId })[0];
   }
 

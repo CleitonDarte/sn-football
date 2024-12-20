@@ -7,8 +7,9 @@ header {
         justify-content: center;
         gap: .5rem;
         height: 75px;
+        position: relative;
 
-        span {
+        span.logo {
             display: block;
             font-size: 2em;
             color: var(--secoColor);
@@ -19,6 +20,38 @@ header {
             font-weight: 700;
             font-size: 2em;
             color: var(--mainColor);
+        }
+
+        .admBtn {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(209, 225, 255, .08);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            height: 24px;
+            width: 39px;
+            border-radius: 12px;
+            padding: 3px;
+            transition: .3s;
+
+            span {
+                display: block;
+                width: 14px;
+                height: 14px;
+                border-radius: 7px;
+                background-color: crimson;
+                transition: inherit;
+            }
+
+            &.on {
+                // border-color: var(--mainColor);
+
+                span {
+                    margin-left: 15px;
+                    background-color: greenyellow;
+                }
+            }
         }
     }
 }

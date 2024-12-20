@@ -20,18 +20,26 @@ export class AppComponent {
   public urlPath: string = '';
 
   public admin$: boolean = false;
+  public authed$: boolean = false;
   private openCounter: number = 0;
   private timerCount: any;
 
   constructor(
     public router: Router,
     private auth: AuthService,
-    private core: CoreService
+    public core: CoreService
   ) {
     this.checkUrl(this.router.url);
     this.router.events.subscribe(event => { (event instanceof NavigationEnd) && this.checkUrl(event.urlAfterRedirects) });
 
-    this.auth.savedData.subscribe(sd => { this.admin$ = sd; sd ? document.body.classList.add('admin') : document.body.classList.remove('admin') });
+    this.auth.savedData.subscribe(sd => { this.authed$ = sd });
+    this.core.adminMode.subscribe(adm => {
+      this.admin$ = adm;
+      adm ? document.body.classList.add('admin') : document.body.classList.remove('admin');
+      let sd = JSON.parse(localStorage['sd'] || '{}');
+      sd.adm = adm;
+      localStorage['sd'] = JSON.stringify(sd);
+    });
 
     this.core.popup.subscribe(val => {
       const set = setTimeout(() => { this.popUp$ = !!val; this.core.bodyScroll(this.popUp$) }, 300);

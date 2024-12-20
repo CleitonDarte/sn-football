@@ -41,6 +41,7 @@ export class PopComponent {
           sd.ut = user.data.authToken;
           localStorage['sd'] = JSON.stringify(sd);
           this.auth.savedData.next(true);
+          this.core.adminMode.next(true);
           this.core.popup.next(undefined);
           this.core.toast.next({ type: 'success', description: 'Authentication Successful' });
         } else {

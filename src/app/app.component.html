@@ -1,6 +1,7 @@
 <header>
     <div class="container">
-        <span (click)="!admin$ && openAuth()"><i class="fa-regular fa-futbol"></i></span> <h4>Sn Football</h4>
+        <span (click)="!authed$ && openAuth()" class="logo"><i class="fa-regular fa-futbol"></i></span> <h4>Sn Football</h4>
+        <div *ngIf="authed$" class="admBtn" [class.on]="admin$" (click)="core.adminMode.next(!admin$)"><span></span></div>
     </div>
 </header>
 <main>
