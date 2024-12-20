@@ -5,7 +5,6 @@ import { CoreService } from './_core/core.service';
 import { AuthService } from './_core/auth.service';
 import { PopComponent } from './_pop/pop.component';
 import { ToastComponent } from './_toast/toast.component';
-import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 
 @Component({
   selector: 'app-root',

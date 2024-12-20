@@ -30,7 +30,7 @@ export class CoreService {
 
     if (!savedData.d) {
       savedData.d = uuid();
-      localStorage['u'] = JSON.stringify(savedData);
+      localStorage['sd'] = JSON.stringify(savedData);
     }
     return savedData.d;
   }
