@@ -18,6 +18,7 @@ export class PopComponent {
   public loading: boolean = false;
 
   public readonly mft: number = 6300000;/* Match Full Time 105min */
+  public readonly extt: number = 1200000;/* Extra Time 20min */
   public nowDate: number = new Date().getTime();
 
   constructor(

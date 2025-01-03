@@ -24,8 +24,8 @@
         </div>
 
         <div class="btnBox">
-            <button (click)="nowDate < (showingPopUp.extraData.date + mft) && nowDate > showingPopUp.extraData.date && !showingPopUp.extraData.resultDone && updateMatchScore(showingPopUp.extraData.id, teamAGoals.value, teamBGoals.value)"
-                [disabled]="loading || nowDate > (showingPopUp.extraData.date + mft) || nowDate < showingPopUp.extraData.date || showingPopUp.extraData.resultDone">Update</button>
+            <button (click)="nowDate < (showingPopUp.extraData.date + mft + extt) && nowDate > showingPopUp.extraData.date && !showingPopUp.extraData.resultDone && updateMatchScore(showingPopUp.extraData.id, teamAGoals.value, teamBGoals.value)"
+                [disabled]="loading || nowDate > (showingPopUp.extraData.date + mft + extt) || nowDate < showingPopUp.extraData.date || showingPopUp.extraData.resultDone">Update</button>
             <button (click)="nowDate > (showingPopUp.extraData.date + mft) && !showingPopUp.extraData.resultDone && sendMatchresult(showingPopUp.extraData.id, teamAGoals.value, teamBGoals.value)"
                 class="blue" [disabled]="loading || nowDate < (showingPopUp.extraData.date + mft) || showingPopUp.extraData.resultDone">Finish</button>
         </div>
